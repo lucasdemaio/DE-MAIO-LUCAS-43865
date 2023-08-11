@@ -1,0 +1,47 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Buscar Motos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Busqueda de motos por marca</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+    <form action="/aplicacion/buscarMoto2" method="get">
+        {% csrf_token %}
+        <h2>Ingrese la marca de moto que desea buscar: </h2>
+        <div class="search-box">
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+            <input type="text" name="marca" id="marca" class="input-search" placeholder="Ingrese Marca">
+            <br><br><br><br><br><br>
+        </div>        
+    </form>
+
+    <a
+    href="{% url 'motos' %}"
+    class="btn btn-danger"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+    ><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+    </a>
+
+{% endblock contenido %}
+
+{% block servicios %}
+{% endblock servicios %}
+
+{% block footer %}
+{% endblock footer %}
+
+
+
+
+
+
+
+
+

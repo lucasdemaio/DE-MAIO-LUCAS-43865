@@ -1,0 +1,29 @@
+{% extends 'aplicacion/base.html' %} 
+{% load static %}
+
+{% block titulo %}
+Registro
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Registro</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <button type="submit">Crear Usuario</button>
+    </form>
+{% endblock contenido %}
+
+{% block servicios %}
+{% endblock servicios %}
+
+{% block footer %}
+{% endblock footer %}

@@ -1,0 +1,42 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Buscar Autos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Busqueda de autos por marca</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+    <form action="/aplicacion/buscarAuto2" method="get">
+        {% csrf_token %}
+        <h2>Ingrese la marca de auto que desea buscar: </h2>
+        <input type="text" name="marca" id="marca">
+        <input type="submit" value="Buscar">
+        <br><br><br><br><br><br>
+           </form>
+
+    <a
+    href="{% url 'autos' %}"
+    class="btn btn-danger"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+    ><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+    </a>
+{% endblock contenido %}
+
+{% block servicios %}
+{% endblock servicios %}
+
+{% block footer %}
+{% endblock footer %}
+
+
+
+
+
+
+

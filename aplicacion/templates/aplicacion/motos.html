@@ -1,0 +1,89 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Motos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Motos Disponibles</div>
+    </div>
+{% endblock cabecera %}
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="600"><h2>Listado de Motos</h2></td>
+        <td>
+            <a class="btn btn-info" href="{% url 'buscar_motos' %}">Filtrar Motos por marca</a>
+            {% if user.is_authenticated %}  
+            <a class="btn btn-success" href="{% url 'create_moto' %}">Agregar Moto</a>
+            {% endif %}
+        </td>
+    </tr>
+</table>
+<br>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Km</th>
+            {% if user.is_authenticated %}
+            <th>Acciones</th>
+            {% endif %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for moto in motos %}
+        <tr>
+            <td>{{moto.id}}</td>
+            <td>{{moto.marca}}</td>
+            <td>{{moto.modelo}}</td>
+            <td>{{moto.anio}}</td>
+            <td>{{moto.kilometraje}}</td>
+            {% if user.is_authenticated %}
+            <td>                
+                <a
+                href="{% url 'detail_moto' moto.id %}"
+                class="btn btn-info"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-search fa-sm" title="Ver Detalles"></i>
+                </a>
+                <a
+                  href="{% url 'update_moto' moto.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;color: black ;background-color: rgb(248, 232, 0); border-color: rgb(248, 232, 0) ;"
+                  ><i class="fa fa-edit fa-sm" title="Editar Moto"></i>
+                </a>
+                <a
+                  href="{% url 'delete_moto' moto.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar Moto"></i>
+                </a>
+            </td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a
+href="{% url 'inicio' %}"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+</a>
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+

@@ -1,0 +1,81 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Empleados
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Empleados</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td width="600"><h2>Listado de Empleados</h2></td>
+        <td>
+            <a class="btn btn-success" href="{% url 'create_empleado' %}">Agregar Empleado</a>
+        </td>
+    </tr>
+</table>
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleados %}
+        <tr>
+            <td>{{empleado.id}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.apellido}}</td>
+            <td>{{empleado.email}}</td>
+            <td>{{empleado.telefono}}</td>
+            <td>
+                <a
+                href="{% url 'detail_empleado' empleado.id %}"
+                class="btn btn-info"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-search fa-sm" title="Ver Detalles"></i>
+                </a>
+                <a
+                  href="{% url 'update_empleado' empleado.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;color: black ;background-color: rgb(248, 232, 0); border-color: rgb(248, 232, 0) ;"
+                  ><i class="fa fa-edit fa-sm" title="Editar Empleado"></i>
+                </a>
+                <a
+                  href="{% url 'delete_empleado' empleado.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar Empleado"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a
+href="{% url 'inicio' %}"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+</a>
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+

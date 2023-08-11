@@ -1,0 +1,52 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+Busqueda Auto
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Resultado Busqueda</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido %}
+    Autos disponibles de la marca {{marca}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Km</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for auto in autos %}
+            <tr>
+                <td>{{auto.id}}</td>
+                <td>{{auto.marca}}</td>
+                <td>{{auto.modelo}}</td>
+                <td>{{auto.anio}}</td>
+                <td>{{auto.kilometraje}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a
+    href="{% url 'autos' %}"
+    class="btn btn-danger"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+    ><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+    </a>
+{% endblock contenido %}
+
+{% block servicios %}
+{% endblock servicios %}
+
+{% block footer %}
+{% endblock footer %}
+

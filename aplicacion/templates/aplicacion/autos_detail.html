@@ -1,0 +1,50 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Autos
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Detalle</div>
+    </div>
+{% endblock cabecera %}
+
+
+
+{% block contenido %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Año</th>
+            <th>Km</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{auto.id}}</td>
+            <td>{{auto.marca}}</td>
+            <td>{{auto.modelo}}</td>
+            <td>{{auto.anio}}</td>
+            <td>{{auto.kilometraje}}</td>            
+        </tr>        
+    </tbody>
+</table>
+<a
+href="{% url 'autos' %}"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+</a>
+{% endblock contenido %}
+
+{% block servicios %}
+
+{% endblock servicios %}
+
+

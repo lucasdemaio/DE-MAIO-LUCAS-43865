@@ -1,0 +1,38 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Nuevo Cliente
+{% endblock titulo %}
+
+{% block cabecera %}
+    <div class="container">
+        <div class="masthead-heading text-uppercase">Cliente</div>
+    </div>
+{% endblock cabecera %}
+
+{% block contenido%}
+<body>
+    <h2>Cargar/Modificar Cliente</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>                
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+<a
+href="{% url 'clientes' %}"
+class="btn btn-danger"
+style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+><i class="fa fa-share fa-sm" title="Volver">Volver</i>
+</a>
+
+{% endblock contenido %}
+
+{% block servicios %}
+{% endblock servicios %}
+
+{% block footer %}
+{% endblock footer %}
