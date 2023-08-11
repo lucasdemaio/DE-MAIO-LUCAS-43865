@@ -29,10 +29,10 @@ Concesionaria/Agencia de autos y motos.
 *   Los usuarios pueden cargar su avatar desde http://127.0.0.1:8000/aplicacion/agregar_avatar
 
 *  Menu de Administracion "Admin"
-    user: coderhouse    (es Staff)
+    user: coderhouse    (es Superusuario)
     Clave: coder-1234
 
-* El video se encuentra en el Menu "Acerca de Mi" a traves de un link a Youtube
+* El VIDEO se encuentra en el Menu "Acerca de Mi" a traves de un link a Youtube
 
 * Casos de Test, se encuentran en la raiz del repositorio con el nombre "Casos de Test.xlsx"
 

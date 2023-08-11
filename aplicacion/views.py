@@ -336,6 +336,7 @@ def login_request(request):
 
     return render(request, "aplicacion/login.html", {"form":miForm})
 
+@login_required
 def register(request):
     if request.method == 'POST':
         form = RegistroUsuariosForm(request.POST)
@@ -367,6 +368,7 @@ def editarPerfil(request):
         form = UserEditForm(instance=usuario)
     return render(request, "aplicacion/editarPerfil.html", {'form': form, 'usuario':usuario.username})
 
+@login_required
 def agregarAvatar(request):
     if request.method == "POST":
         form = AvatarFormulario(request.POST, request.FILES)
